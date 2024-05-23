@@ -30,6 +30,7 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
