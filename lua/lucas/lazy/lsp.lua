@@ -32,6 +32,8 @@ return {
                 "ruff",
                 "pyright",
                 "tailwindcss",
+                "html",
+                "cssls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -75,6 +77,13 @@ return {
                             }
 
                         }
+                    }
+                end,
+
+                ["html"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.html.setup {
+                        filetypes = { "html", "htmldjango" },
                     }
                 end,
             }
