@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-    color = color or "tokyonight"
+    color = color or "gruber-darker"
     vim.cmd.colorscheme(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -9,6 +9,8 @@ end
 return {
     {
         "folke/tokyonight.nvim",
+        lazy = false,
+        opts = {},
         config = function()
             require("tokyonight").setup({
                 -- your configuration comes here
@@ -26,9 +28,9 @@ return {
                     floats = "dark",   -- style for floating windows
                 },
             })
+            ColorMyPencils()
         end
     },
-
     {
         "rose-pine/neovim",
         name = "rose-pine",
@@ -39,12 +41,19 @@ return {
                     italic = false,
                 },
             })
-
-            vim.cmd("colorscheme rose-pine")
-
-            ColorMyPencils()
         end
     },
-
-
+    {
+        "blazkowolf/gruber-darker.nvim",
+        opts = {
+            bold = false,
+            italic = {
+                strings = false,
+                operators = false,
+                folds = false,
+            },
+            underline = false,
+            undercurl = false,
+        },
+    },
 }
