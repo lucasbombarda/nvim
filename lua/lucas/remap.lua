@@ -10,8 +10,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>te", ":vsp +te<CR>")
-
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -40,3 +38,9 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Disable arrow keys to get used to hjkl
+vim.keymap.set({ "n", "v", "i", "c" }, "<Up>", "<nop>")
+vim.keymap.set({ "n", "v", "i", "c" }, "<Down>", "<nop>")
+vim.keymap.set({ "n", "v", "i", "c" }, "<Left>", "<nop>")
+vim.keymap.set({ "n", "v", "i", "c" }, "<Right>", "<nop>")
