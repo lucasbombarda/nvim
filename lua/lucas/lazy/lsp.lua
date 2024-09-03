@@ -30,11 +30,13 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
+                "tsserver",
                 "pyright",
                 "tailwindcss",
                 "html",
                 "cssls",
                 "sqlls",
+                "svelte",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -81,13 +83,22 @@ return {
                 ["html"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.html.setup {
+                        capabilities = capabilities,
                         filetypes = { "html", "htmldjango" },
+                        init_options = {
+                            configurationSection = { "html", "css", "javascript" },
+                            embeddedLanguages = {
+                                css = true,
+                                javascript = true,
+                            },
+                        },
                     }
                 end,
 
                 ["pyright"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.pyright.setup {
+                        capabilities = capabilities,
                         settings = {
                             python = {
                                 analysis = {
