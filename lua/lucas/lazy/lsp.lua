@@ -37,6 +37,7 @@ return {
                 "cssls",
                 "sqlls",
                 "svelte",
+                "jsonls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
