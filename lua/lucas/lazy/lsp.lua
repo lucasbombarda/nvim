@@ -30,7 +30,7 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
-                "tsserver",
+                "ts_ls",
                 "pyright",
                 "tailwindcss",
                 "html",
