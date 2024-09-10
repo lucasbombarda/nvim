@@ -30,14 +30,14 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
-                "ts_ls",
                 "pyright",
                 "tailwindcss",
                 "html",
                 "cssls",
                 "sqlls",
                 "svelte",
-                "jsonls",
+                "biome",
+                "gopls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -108,6 +108,14 @@ return {
                                 }
                             }
                         }
+                    }
+                end,
+
+                ["biome"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.biome.setup {
+                        capabilities = capabilities,
+                        filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css" },
                     }
                 end,
 
