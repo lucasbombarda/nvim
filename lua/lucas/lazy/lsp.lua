@@ -115,7 +115,7 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.biome.setup {
                         capabilities = capabilities,
-                        filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css" },
+                        filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css", "htmldjango" },
                     }
                 end,
 
