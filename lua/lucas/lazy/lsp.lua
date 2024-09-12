@@ -38,6 +38,7 @@ return {
                 "svelte",
                 "biome",
                 "gopls",
+                "jsonls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
