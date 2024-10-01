@@ -39,6 +39,7 @@ return {
                 "biome",
                 "gopls",
                 "jsonls",
+                "ts_ls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
