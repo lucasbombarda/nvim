@@ -86,7 +86,7 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.html.setup {
                         capabilities = capabilities,
-                        filetypes = { "html", "htmldjango" },
+                        filetypes = { "html" },
                         init_options = {
                             configurationSection = { "html", "css", "javascript" },
                             embeddedLanguages = {
@@ -116,7 +116,6 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.biome.setup {
                         capabilities = capabilities,
-                        filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css", "htmldjango" },
                     }
                 end,
 
