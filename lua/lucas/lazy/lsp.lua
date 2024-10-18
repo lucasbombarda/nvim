@@ -40,6 +40,7 @@ return {
                 "gopls",
                 "jsonls",
                 "ts_ls",
+                "angularls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -116,6 +117,42 @@ return {
                 ["biome"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.biome.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ["angularls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.angularls.setup {
+                        capabilities = capabilities,
+                        filetypes = { "typescript", "html" },
+                    }
+                end,
+
+                ["svelte"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.svelte.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ["gopls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.gopls.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ["jsonls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.jsonls.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ["ts_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.ts_ls.setup {
                         capabilities = capabilities,
                     }
                 end,
