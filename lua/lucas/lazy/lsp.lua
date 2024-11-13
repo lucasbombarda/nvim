@@ -32,7 +32,6 @@ return {
                 "ruff",
                 "pyright",
                 "tailwindcss",
-                "html",
                 "cssls",
                 "sqlls",
                 "svelte",
@@ -81,21 +80,6 @@ return {
                             }
 
                         }
-                    }
-                end,
-
-                ["html"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.html.setup {
-                        capabilities = capabilities,
-                        filetypes = { "html" },
-                        init_options = {
-                            configurationSection = { "html", "css", "javascript" },
-                            embeddedLanguages = {
-                                css = true,
-                                javascript = true,
-                            },
-                        },
                     }
                 end,
 
