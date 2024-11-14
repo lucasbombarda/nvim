@@ -31,7 +31,6 @@ return {
                 "clangd",
                 "ruff",
                 "pyright",
-                "tailwindcss",
                 "cssls",
                 "sqlls",
                 "biome",
