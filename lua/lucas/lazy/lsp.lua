@@ -30,10 +30,10 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
+                "pyright",
                 "tailwindcss",
                 "cssls",
                 "sqlls",
-                "svelte",
                 "biome",
                 "gopls",
                 "jsonls",
@@ -82,6 +82,23 @@ return {
                     }
                 end,
 
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    typeCheckingMode = "off",
+                                    diagnosticMode = "openFilesOnly",
+                                    useLibraryCodeForTypes = true,
+                                }
+                            }
+                        }
+                    }
+                end,
+
                 ["biome"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.biome.setup {
@@ -94,13 +111,6 @@ return {
                     lspconfig.angularls.setup {
                         capabilities = capabilities,
                         filetypes = { "typescript", "html" },
-                    }
-                end,
-
-                ["svelte"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.svelte.setup {
-                        capabilities = capabilities,
                     }
                 end,
 
