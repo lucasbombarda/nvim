@@ -30,7 +30,6 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "ruff",
-                "pyright",
                 "tailwindcss",
                 "cssls",
                 "sqlls",
@@ -79,21 +78,6 @@ return {
                                 },
                             }
 
-                        }
-                    }
-                end,
-
-                ["pyright"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.pyright.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            python = {
-                                analysis = {
-                                    autoSearchPaths = true,
-                                    typeCheckingMode = "off",
-                                }
-                            }
                         }
                     }
                 end,
