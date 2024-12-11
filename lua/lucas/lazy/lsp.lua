@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
+        "stevearc/conform.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
@@ -14,6 +15,9 @@ return {
     },
 
     config = function()
+        require("conform").setup({
+            formatters_by_ft = {}
+        })
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
@@ -35,9 +39,9 @@ return {
                 "sqlls",
                 "biome",
                 "gopls",
-                "jsonls",
                 "ts_ls",
                 "angularls",
+                "html",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -97,43 +101,6 @@ return {
                         }
                     }
                 end,
-
-                ["biome"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.biome.setup {
-                        capabilities = capabilities,
-                    }
-                end,
-
-                ["angularls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.angularls.setup {
-                        capabilities = capabilities,
-                        filetypes = { "typescript", "html" },
-                    }
-                end,
-
-                ["gopls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.gopls.setup {
-                        capabilities = capabilities,
-                    }
-                end,
-
-                ["jsonls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.jsonls.setup {
-                        capabilities = capabilities,
-                    }
-                end,
-
-                ["ts_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.ts_ls.setup {
-                        capabilities = capabilities,
-                    }
-                end,
-
             }
         })
 
